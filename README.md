@@ -18,28 +18,48 @@ Drug labels contain detailed evidence, but comparing the same section across pro
 
 Select an image to open it at full size. The callouts were added to the captured screens to distinguish summaries, label text, and condition matches.
 
-### Drug comparison
-
-<a href="screenshots/drug-comparison.png"><img src="screenshots/drug-comparison.png" width="800" alt="Losartan and captopril indications side by side, with purple brackets marking AI summaries and teal brackets marking expanded original label text"></a>
-
-The browser compares ingredient results. The source label in the losartan column is for a losartan and hydrochlorothiazide product, as shown in the expanded text.
-
 ### Label detail and follow-up questions
 
 | Warfarin label and summary | Tacrolimus chat |
 | :---: | :---: |
 | <a href="screenshots/warfarin-label-and-summary.png"><img src="screenshots/warfarin-label-and-summary.png" width="435" alt="Warfarin pharmacokinetics with MedGemma bullets above the expanded DailyMed label text"></a> | <a href="screenshots/tacrolimus-chat.png"><img src="screenshots/tacrolimus-chat.png" width="345" alt="Tacrolimus chat showing mechanism of action and a follow-up about indications, both marked From drug data"></a> |
 
+### Drug comparison
+
+The comparison accepts **2 to 15 drugs**. The table scrolls horizontally as columns are added. This walkthrough uses losartan and captopril. The source label in the losartan column is for a losartan and hydrochlorothiazide product.
+
+| Select drugs and compare | Browse the summary rows |
+| :---: | :---: |
+| <a href="screenshots/comparison-selection.png"><img src="screenshots/comparison-selection.png" width="390" alt="Drug comparison with losartan and captopril selected, a search field for adding drugs, and a Read more link where a summary failed to parse"></a> | <a href="screenshots/comparison-summary-rows.png"><img src="screenshots/comparison-summary-rows.png" width="390" alt="Side-by-side indications and contraindications summaries with controls to expand the full data"></a> |
+
+The first capture shows a summary parsing failure. The label remains available through **Read more**.
+
+**AI summaries alongside the original labels**
+
+<a href="screenshots/drug-comparison.png"><img src="screenshots/drug-comparison.png" width="800" alt="Losartan and captopril indications side by side, with purple brackets marking AI summaries and teal brackets marking expanded original label text"></a>
+
+| Expanded label text, continued | Expanded label text, continued | End of the captured label sections |
+| :---: | :---: | :---: |
+| <a href="screenshots/comparison-label-text-02.png"><img src="screenshots/comparison-label-text-02.png" width="260" alt="Expanded indications label text for both drugs, with a short clipped captopril summary line at the top"></a> | <a href="screenshots/comparison-label-text-03.png"><img src="screenshots/comparison-label-text-03.png" width="260" alt="Continued indications label text for the losartan combination product and captopril"></a> | <a href="screenshots/comparison-label-text-04.png"><img src="screenshots/comparison-label-text-04.png" width="260" alt="Final captured portion of both drugs' expanded indications label text"></a> |
+
+### Contraindications and cautions
+
+The yellow cards show MedGemma-extracted contraindications and cautions for each compared drug. The badge on each card identifies its category. Documented MED-RT terms appear separately above the cards.
+
+| Losartan | Captopril |
+| :---: | :---: |
+| <a href="screenshots/comparison-losartan-contraindications.png"><img src="screenshots/comparison-losartan-contraindications.png" width="465" alt="Losartan condition details with documented MED-RT tags and yellow cards labeled Contraindicated or Caution"></a> | <a href="screenshots/comparison-captopril-contraindications.png"><img src="screenshots/comparison-captopril-contraindications.png" width="465" alt="Captopril condition details with documented MED-RT tags and yellow cards labeled Contraindicated or Caution"></a> |
+
 ### Special conditions
 
 <a href="screenshots/pregnancy-condition-match.png"><img src="screenshots/pregnancy-condition-match.png" width="900" alt="Pregnancy selected under Special Conditions, with red headers marking matches for both losartan and captopril"></a>
 
-The red highlight means the drug matched the selected condition. The same color is used for every match.
+The red headers show that both drugs matched the selected pregnancy condition. The same color is used for every match.
 
 ## Product workflow
 
 1. **Find an ingredient.** Search the local RxNorm ingredient vocabulary by name. Open a result to see relevant DailyMed sections, available strengths, structured classifications, and interaction records.
-2. **Read or summarize.** Expand the original label text or request a MedGemma summary of a section. The app also supports a drug-wide summary. Comparisons align categories across selected drugs and keep each column's label text expandable.
+2. **Read or summarize.** Expand the original label text or request a MedGemma summary of a section. The app also supports a drug-wide summary. Comparisons align categories across 2 to 15 selected drugs and keep each column's label text expandable.
 3. **Ask a follow-up or check a condition.** Chat uses the selected drug or comparison context and identifies database-derived answers and general-knowledge fallback separately. A condition check matches the entered term against structured and model-extracted entries, then highlights the matching drugs.
 4. **Review model suggestions.** A separate local review page lists saved candidates for approval or rejection. The prototype can display approved candidates as marked additions alongside label-derived content.
 
@@ -49,7 +69,7 @@ flowchart TD
     B --> C["Retrieve DailyMed sections and linked records"]
     C --> D["Read original label text"]
     C --> E["Summarize retrieved sections with local MedGemma"]
-    C --> F["Compare selected ingredients"]
+    C --> F["Compare 2 to 15 selected ingredients"]
     C --> G["Ask a follow-up in context"]
     F --> H["Read summaries or expand each source label"]
     F --> I["Check a special condition"]
