@@ -1,4 +1,4 @@
-# Pharma Database AI
+# "IN PROGRESS" Pharma Database AI
 
 **A local drug-label browser with side-by-side comparisons and MedGemma summaries.**
 
